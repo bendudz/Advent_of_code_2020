@@ -26,16 +26,13 @@ def do_work(ledger_values: List[int], combo_qty: int) -> int:
     combos = list(itertools.combinations(ledger_values, combo_qty))
     multiple = ''
     for combo in combos:
-        try:
-            multiple = sum_combo(combo)
-            if multiple is not None:
-                break
-        except Exception:
-            continue
+        multiple = sum_combo(combo)
+        if multiple is not None:
+            break
     return multiple
 
 
-def sum_combo(combo: tuple):
+def sum_combo(combo: tuple) -> int:
     if sum(combo) == 2020:
         return reduce(operator.mul, combo, 1)
 
