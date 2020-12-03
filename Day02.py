@@ -30,28 +30,26 @@ def validator_pt2(password_entry):
     return True if count == 1 else False
 
 
-def solve_pt1a():
-    file = read_file("D02P01.txt")
+def driver(file: str, puzzle_part):
+    file = read_file(file)
     inputs = [v for v in file]
-    return len(do_work(inputs, 1))
+    return len(do_work(inputs, puzzle_part))
+
+
+def solve_pt1a():
+    return driver("D02P01.txt", 1)
 
 
 def solve_pt1b():
-    file = read_file("D02P02.txt")
-    inputs = [v for v in file]
-    return len(do_work(inputs, 1))
+    return driver("D02P02.txt", 1)
 
 
 def solve_pt2a():
-    file = read_file("D02P01.txt")
-    inputs = [v for v in file]
-    return len(do_work(inputs, 2))
+    return driver("D02P01.txt", 2)
 
 
 def solve_pt2b():
-    file = read_file("D02P02.txt")
-    inputs = [v for v in file]
-    return len(do_work(inputs, 2))
+    return driver("D02P02.txt", 2)
 
 
 print(f"Day 2 Part 1a Answer: {solve_pt1a()}")
