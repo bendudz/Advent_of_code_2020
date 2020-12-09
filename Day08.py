@@ -19,8 +19,7 @@ def part1(instructions: List[List[str]]) -> Tuple[int, bool]:
     while pos < len(instructions) and not visited[pos]:
         visited[pos] = True
         op, arg = instructions[pos]
-        oper = arg[:1]
-        num = int(arg[1:])
+        oper, num = arg[:1], int(arg[1:])
         if op == "acc":
             accumulator = ops.get(oper)(accumulator, num)
             pos += 1
